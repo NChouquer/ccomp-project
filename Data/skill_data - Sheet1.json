@@ -1,0 +1,6 @@
+{
+  "basic_attack": {
+    "phys_damage": 1,
+    "mag_damage": 0
+  }
+}
