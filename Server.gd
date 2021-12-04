@@ -1,7 +1,7 @@
 extends Node
 
 var network = NetworkedMultiplayerENet.new()
-var port = 1909
+var port = 5000
 var max_players = 100
 
 
