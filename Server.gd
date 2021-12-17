@@ -13,6 +13,7 @@ func startServer():
 	network.create_server(port, max_players)
 	get_tree().set_network_peer(network)
 	print("Server started")
+	print(self.get_path())
 	network.connect("peer_connected",self,"_Peer_Connected")
 	network.connect("peer_disconnected",self,"_Peer_Disconnected")
 	
