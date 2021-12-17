@@ -26,6 +26,12 @@ func save_user_data():
 	f.open("res://Data/user_data.json", File.WRITE)
 	f.store_string(JSON.print(user_data, "  ", true))
 	f.close()
+	
+func save_player_state(userinfo):
+	var username = userinfo["U"]
+	user_data[username]["pos_x"] = userinfo["P"].x
+	user_data[username]["pos_y"] = userinfo["P"].y
+	save_user_data()
 
 func newAccount(username,password):
 	user_data[username] = {"username":username,"password":password,"pos_x":64,"pos_y":256}

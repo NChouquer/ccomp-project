@@ -25,7 +25,9 @@ func _Peer_Connected(player_id):
 
 func _Peer_Disconnected(player_id):
 	print("User "+ str(player_id) + " disconnected")
-	player_state_collection.erase(player_id)
+	if player_state_collection.has(player_id):
+		DataImport.save_player_state(player_state_collection[player_id])
+		player_state_collection.erase(player_id)
 	rpc_id(0,"DespawnPlayer",player_id)
 
 master func CreateAccount(username,password):
@@ -52,7 +54,7 @@ master func LogIn(username,password):
 		if DataImport.user_data.get(username)["password"]==password:
 			response_info = DataImport.getUserInfo(username)
 			response_code = 0
-			rpc_id(0,"SpawnNewPlayer",player_id,Vector2(response_info["x"],response_info["y"]))
+			rpc_id(0,"SpawnNewPlayer",player_id,Vector2(response_info["x"],response_info["y"]),username)
 		else:
 			response_code = 1
 	

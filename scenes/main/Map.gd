@@ -15,6 +15,7 @@ func _ready():
 	timer.connect("timeout",self,"SpawnEnemy")
 	self.add_child(timer)
 	
+	
 func SpawnEnemy():
 	if enemy_list.size()>=enemy_maximum:
 		pass
