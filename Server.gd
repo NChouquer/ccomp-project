@@ -7,6 +7,7 @@ var player_state_collection = {}
 
 
 func _ready():
+	self.name = "Server"
 	startServer()
 	
 func startServer():
@@ -20,7 +21,7 @@ func startServer():
 
 func _Peer_Connected(player_id):
 	print("User "+ str(player_id) + " connected")
-	rpc_id(0,"SpawnNewPlayer",player_id,Vector2(64,256))
+	
 
 func _Peer_Disconnected(player_id):
 	print("User "+ str(player_id) + " disconnected")
@@ -51,6 +52,7 @@ master func LogIn(username,password):
 		if DataImport.user_data.get(username)["password"]==password:
 			response_info = DataImport.getUserInfo(username)
 			response_code = 0
+			rpc_id(0,"SpawnNewPlayer",player_id,Vector2(response_info["x"],response_info["y"]))
 		else:
 			response_code = 1
 	
