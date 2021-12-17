@@ -1,0 +1,11 @@
+{
+  "Slime": {
+    "max_health": 10,
+    "atk": 1,
+    "sprt": "characters.png",
+    "reg_x": 0,
+    "reg_y": 128,
+    "reg_w": 96,
+    "reg_h": 128
+  }
+}
