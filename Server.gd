@@ -27,7 +27,7 @@ func _Peer_Disconnected(player_id):
 	player_state_collection.erase(player_id)
 	rpc_id(0,"DespawnPlayer",player_id)
 
-remote func CreateAccount(username,password):
+master func CreateAccount(username,password):
 	var response_code
 	var response_info = {}
 	var player_id = get_tree().get_rpc_sender_id()
@@ -41,7 +41,7 @@ remote func CreateAccount(username,password):
 	
 	rpc_id(player_id,"CreateAccountResponse",response_code,response_info)
 	
-remote func LogIn(username,password):
+master func LogIn(username,password):
 	var response_code
 	var response_info = {}
 	var player_id = get_tree().get_rpc_sender_id()
