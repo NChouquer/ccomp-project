@@ -39,7 +39,7 @@ master func CreateAccount(username,password):
 		response_code = 1
 		
 	
-	rpc_id(player_id,"CreateAccountResponse",response_code,response_info)
+	rpc_id(0,"CreateAccountResponse",response_code,response_info,player_id)
 	
 master func LogIn(username,password):
 	var response_code
@@ -54,7 +54,7 @@ master func LogIn(username,password):
 		else:
 			response_code = 1
 	
-	rpc_id(player_id,"LogInResponse",response_code,response_info)
+	rpc_id(0,"LogInResponse",response_code,response_info,player_id)
 	
 remote func ReceivePlayerState(player_state):
 	var player_id = get_tree().get_rpc_sender_id()
